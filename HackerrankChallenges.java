@@ -14,7 +14,8 @@ public class HackerrankChallenges {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println(0^0);
+        
+        String word = "welcomer";
+        System.out.println(word.substring(word.length()/2,word.length()));
     }
 }
