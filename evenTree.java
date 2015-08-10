@@ -22,11 +22,18 @@ public class evenTree {
         
         int firstNumber = input.nextInt();
         int secondNumber = input.nextInt();
+        Node firstNode = new Node();
+        boolean isset = true;
         
         for(int i = 0; i < secondNumber; i++)
         {
              Node<Integer> subNode = new Node(input.nextInt());
              Node<Integer> masterNode = new Node(input.nextInt());
+             if(isset)
+             {
+                 firstNode = subNode;
+                 isset = false;
+             }
             
              myGraph.addNode(masterNode);
              myGraph.addNode(subNode);
@@ -34,7 +41,15 @@ public class evenTree {
              Edge connector = new Edge(masterNode, subNode);
              myGraph.addEdge(connector);
              
+         }
+            
+           Vector<Node> vals =  myGraph.getNeighbors(firstNode);
+           for (Node ma:vals)
+           {
+               System.out.println(ma + " I m in here");
+               
            }
+        
         
      
     }

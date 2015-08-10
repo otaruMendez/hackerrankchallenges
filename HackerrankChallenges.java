@@ -4,6 +4,7 @@
  */
 package hackerrankchallenges;
 import Library.*;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 
@@ -90,11 +91,20 @@ public class HackerrankChallenges {
 //                System.out.println("");
 //            }
 //        }
-         BigInteger N = new BigInteger("10");
-          BigInteger halfer =  N.divide(new BigInteger("2"));
-            BigInteger two = halfer;
-         BigInteger val = two.modPow(halfer, new BigInteger("0"));
-         System.out.println(val);
+//         BigInteger N = new BigInteger("10");
+//          BigInteger halfer =  N.divide(new BigInteger("2"));
+//            BigInteger two = halfer;
+//         BigInteger val = two.modPow(halfer, new BigInteger("0"));
+//         System.out.println(val);
+        
+     //   System.out.println(3);
+        
+         BigDecimal valsd = new BigDecimal("-1");
+          BigDecimal vals = new BigDecimal("2");
+        if (valsd.compareTo(vals) == 1)
+        {
+            System.out.println("yes");
+        }
         }
     }
 

@@ -4,83 +4,77 @@
  */
 package hackerrankchallenges;
 
-import Library.inputClass;
-import Library.libraryClass;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 /**
  *
  * @author engr
  */
 public class quickSorting2Sorting {
+
     
-    void quickSort2(int[] arrayI)
+     static void quickSort(ArrayList<Integer> items)
     {
-        
-        
-        ArrayList<Integer> leftSide = quickSort1(arrayI).get(0);
-        ArrayList<Integer> rightside = quickSort1(arrayI).get(1);
-        //ArrayList<ArrayList> outpu = new ArrayList();
-         int[] leftsid = new Library.libraryClass().collectionToArray(leftSide);
-          int[] rightsid = new Library.libraryClass().collectionToArray(rightside);
-        
-        if(!(leftSide.isEmpty() || rightside.isEmpty()))
+        if(items.size() > 1)
         {
-            leftsid = new Library.libraryClass().collectionToArray(leftSide);
-            rightsid = new Library.libraryClass().collectionToArray(rightside);
-            quickSort1(leftsid);
-            quickSort1(rightsid);
-           
-         }
-        else
-        {
-           new libraryClass().printArray(leftsid);
-           new libraryClass().printArray(rightsid);
-           
-        }
+        ArrayList<Integer> smaller = new ArrayList<>();
+        ArrayList<Integer> same = new ArrayList<>();
+        ArrayList<Integer> larger = new ArrayList<>();
+        
        
-    }
-    
-    ArrayList<ArrayList> quickSort1(int[] array)
-    {
-         int noOfItems = array.length;
-        int firstItem = array[0];
-        ArrayList<Integer> toTheLeft = new ArrayList();
-        ArrayList<Integer> toTheRight = new ArrayList();
-       // ArrayList<Integer> midNumber = new ArrayList<>();
-        //midNumber.add(firstItem);
-        for (int i = 1; i < noOfItems; i++)
+        Integer chosenitem = items.get(0);
+        
+        for(Integer i : items)
         {
-           int val = array[i];
-           if(val > firstItem)
-           {
-               toTheRight.add(val);
-           }
-           else
-           {
-               toTheLeft.add(val);
-           }
+            if(i < chosenitem)
+            {
+                smaller.add(i);
+            }
+            else if(i > chosenitem)
+            {
+                larger.add(i);
+            }
+            else
+            {
+                same.add(i);
+            }
         }
         
-       ArrayList<ArrayList> list = new ArrayList<>();
-       list.add(toTheLeft);
-       list.add(toTheRight);
-      // list.add(midNumber);
+        quickSort(smaller);
+        quickSort(larger);
+        
+        items.clear();
+        items.addAll(smaller);
+        items.addAll(same);
+        items.addAll(larger);
+        
+        for (int i : items)
+        {
+            System.out.print(i + " ");
+        }
+        System.out.println("");
        
-       return list;
-  }
-    
-    public static void main(String[] args)
-    {
-        inputClass inpu = new inputClass();
-        quickSorting2Sorting val = new quickSorting2Sorting();
-        Scanner inScanner = new Scanner(System.in);
-        int[] array = inpu.takeArryInt(inScanner.nextInt());
-        val.quickSort2(array);
+    }
         
     }
-    
-    
    
+    public  static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        int noOfElements = input.nextInt();
+        ArrayList<Integer> items = new ArrayList<>();
+        
+        for (int i = 0; i < noOfElements; i++)
+        {
+            items.add(input.nextInt());
+        }
+        
+       quickSort(items);
+        
+       
+       
+    }
 }

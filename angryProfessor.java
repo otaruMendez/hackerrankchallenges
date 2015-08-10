@@ -31,6 +31,7 @@ public class angryProfessor {
                     counter++;
                 }
             }
+            System.out.println(counter);
            
             if (counter >= noOfStudentsToComeEarly)
             {
